@@ -41,6 +41,7 @@ public class RoomUpdateController extends HttpServlet{
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		int roomId=Integer.parseInt(req.getParameter("room_id"));
 		int resortId=Integer.parseInt(req.getParameter("resort_id"));
+		String roomName=req.getParameter("room_name");
 		String roomType=req.getParameter("room_type");
 		int roomQuantity=Integer.parseInt(req.getParameter("room_quantity"));
 		int maxGuests=Integer.parseInt(req.getParameter("max_guests"));
@@ -88,7 +89,7 @@ public class RoomUpdateController extends HttpServlet{
             orgSubImg3 = saveFile(subPart3, path, false);
         }	
 
-		RoomDTO resortdto=new RoomDTO(roomId,resortId,roomType,roomQuantity,maxGuests,
+		RoomDTO resortdto=new RoomDTO(roomId,resortId,roomName,roomType,roomQuantity,maxGuests,
 				price,orgMainImg,orgSubImg1,orgSubImg2,orgSubImg3,description,null);
 		
 		dao.roomUpdate(resortdto);

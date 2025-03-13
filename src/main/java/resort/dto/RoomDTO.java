@@ -5,6 +5,7 @@ import java.sql.Date;
 public class RoomDTO {
 	private int room_id;
 	private int resort_id;
+	private String room_name;
 	private String room_type;
 	private int room_quantity;
 	private int max_guests;
@@ -18,11 +19,12 @@ public class RoomDTO {
 
 	public RoomDTO() {}
 
-	public RoomDTO(int room_id, int resort_id, String room_type, int room_quantity, int max_guests, int price_per_night,
-			String rmain_img, String rsub_img1, String rsub_img2, String rsub_img3, String description,
-			Date created_at) {
+	public RoomDTO(int room_id, int resort_id, String room_name, String room_type, int room_quantity, 
+			int max_guests, int price_per_night,String rmain_img, String rsub_img1, String rsub_img2, 
+			String rsub_img3, String description, Date created_at) {
 		this.room_id = room_id;
 		this.resort_id = resort_id;
+		this.room_name = room_name;
 		this.room_type = room_type;
 		this.room_quantity = room_quantity;
 		this.max_guests = max_guests;
@@ -49,6 +51,14 @@ public class RoomDTO {
 
 	public void setResort_id(int resort_id) {
 		this.resort_id = resort_id;
+	}
+	
+	public String getRoom_name() {
+		return room_name;
+	}
+
+	public void setRoom_name(String room_name) {
+		this.room_name = room_name;
 	}
 
 	public String getRoom_type() {
@@ -133,11 +143,12 @@ public class RoomDTO {
 
 	@Override
 	public String toString() {
-		return "RoomDTO [room_id=" + room_id + ", resort_id=" + resort_id + ", room_type=" + room_type
-				+ ", room_quantity=" + room_quantity + ", max_guests=" + max_guests + ", price_per_night="
+		return "RoomDTO [room_id=" + room_id + ", resort_id=" + resort_id + ", room_name=" + room_name + ", room_type="
+				+ room_type + ", room_quantity=" + room_quantity + ", max_guests=" + max_guests + ", price_per_night="
 				+ price_per_night + ", rmain_img=" + rmain_img + ", rsub_img1=" + rsub_img1 + ", rsub_img2=" + rsub_img2
 				+ ", rsub_img3=" + rsub_img3 + ", description=" + description + ", created_at=" + created_at + "]";
 	}
+
 	
 	
 	

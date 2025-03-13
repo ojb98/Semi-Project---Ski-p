@@ -35,6 +35,7 @@ public class RoomInsertController extends HttpServlet{
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		int resort_id=Integer.parseInt(req.getParameter("resort_id"));
+		String roomName=req.getParameter("room_name");
 		String roomType=req.getParameter("room_type");
 		int quantity = Integer.parseInt(req.getParameter("room_quantity"));
 		int maxGuests = Integer.parseInt(req.getParameter("max_guests"));
@@ -66,7 +67,7 @@ public class RoomInsertController extends HttpServlet{
 			String subImg2=saveFile(req.getPart("rsub_img2"),path,false);
 			String subImg3=saveFile(req.getPart("rsub_img3"),path,false);
 				
-			RoomDTO dto=new RoomDTO(0,resort_id,roomType,quantity,maxGuests,price,mainImg,subImg1,subImg2,subImg3,description,null);
+			RoomDTO dto=new RoomDTO(0,resort_id,roomName,roomType,quantity,maxGuests,price,mainImg,subImg1,subImg2,subImg3,description,null);
 			RoomDao dao=RoomDao.getInstance();
 			
 			int n=dao.roomInsert(dto);

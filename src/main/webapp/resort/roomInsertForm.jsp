@@ -17,6 +17,8 @@
 	<label for="resortName">리조트명</label>
 	<input type="text" name="name" id="resortName" value="${param.name }" readonly="readonly"><br>
 	
+	<label for="roomName">객실명</label>
+	<input type="text" name="room_name" id="roomName"><br>
 	
 	<label for="roomType">객실 유형</label>
 	<select id="roomType" name="room_type">

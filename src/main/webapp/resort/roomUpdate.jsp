@@ -13,6 +13,9 @@
 
 <form action="${pageContext.request.contextPath }/room/update" 
 	method="post" enctype="multipart/form-data">
+	
+	<label for="roomName">객실명</label>
+	<input type="text" name="room_name" id="roomName" value="${dto.room_name }"><br>
 		
 	<label for="roomType">객실 유형</label>
 	<select id="roomType" name="room_type" disabled="disabled">

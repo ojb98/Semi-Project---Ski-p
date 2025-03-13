@@ -136,6 +136,7 @@
 	<table border="1" width="900">
 	<tr>
         <th>번호</th>
+        <th>객실명</th>
         <th>객실유형</th>
         <th>객실 수</th>
         <th>최대숙박 인원</th>
@@ -152,6 +153,7 @@
     <c:forEach var="rm" items="${rmdto}">
 		<tr>
             <td>${rm.room_id}</td>
+            <td>${rm.room_name }</td>
             <td>${rm.room_type}</td>
             <td>${rm.room_quantity}</td>
             <td>${rm.max_guests}</td>

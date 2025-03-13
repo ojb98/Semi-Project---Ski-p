@@ -6,8 +6,10 @@
 
 	<!-- 객실 삽입(추가) -->
 	<insert id="roomInsert" parameterType="resort.dto.RoomDTO">
-		insert into ROOM(room_id,resort_id,room_type,room_quantity,max_guests,price_per_night,rmain_img,rsub_img1,rsub_img2,rsub_img3,description,created_at)
-		values(room_seq.nextval,#{resort_id},#{room_type},#{room_quantity},#{max_guests},#{price_per_night},#{rmain_img},
+		insert into ROOM(room_id,resort_id,room_name,room_type,room_quantity,max_guests,price_per_night,
+		rmain_img,rsub_img1,rsub_img2,rsub_img3,description,created_at)
+		values(room_seq.nextval,#{resort_id},#{room_name},#{room_type},#{room_quantity},#{max_guests},#{price_per_night},
+		#{rmain_img},
 		#{rsub_img1, jdbcType=VARCHAR},
 		#{rsub_img2, jdbcType=VARCHAR},
 		#{rsub_img3, jdbcType=VARCHAR},
@@ -16,14 +18,16 @@
 	
 	<!-- 해당 리조트에 있는 객실 모두 조회(여러개 가져오기) -->
 	<select id="getRoomInfo" parameterType="int" resultType="resort.dto.RoomDTO">
-		select room_id,room_type,room_quantity,max_guests,price_per_night,
+		select room_id,room_name,room_type,room_quantity,max_guests,price_per_night,
 		rmain_img,rsub_img1,rsub_img2,rsub_img3,description,created_at
 		from ROOM where resort_id=#{resort_id}
 	</select>
 	
 	<!-- 객실 조회(한행 가져오기) -->
 	<select id="getRoomId" parameterType="int" resultType="resort.dto.RoomDTO">
-		select * from ROOM where room_id=#{room_id}
+		select room_id,resort_id,room_name,room_type,room_quantity,max_guests,
+		price_per_night,rmain_img,rsub_img1,rsub_img2,rsub_img3,description,created_at
+	    from ROOM where room_id=#{room_id}
 	</select>
 	
 	<!-- 객실 삭제 -->
@@ -33,7 +37,8 @@
 	
 	<!-- 객실 수정 -->
 	<update id="rmUpdate" parameterType="resort.dto.RoomDTO">
-		update ROOM set room_quantity=#{room_quantity},max_guests=#{max_guests},price_per_night=#{price_per_night},
+		update ROOM set room_name=#{room_name},room_quantity=#{room_quantity},max_guests=#{max_guests},
+		price_per_night=#{price_per_night},
 		rmain_img=#{rmain_img, jdbcType=VARCHAR},
 		rsub_img1=#{rsub_img1, jdbcType=VARCHAR},
 		rsub_img2=#{rsub_img2, jdbcType=VARCHAR},
